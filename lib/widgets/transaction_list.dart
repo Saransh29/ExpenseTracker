@@ -8,52 +8,55 @@ class TransactionList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: transactions.map((tx) {
-        return Card(
-          child: Row(
-            children: <Widget>[
-              Container(
-                margin:
-                    const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Color.fromARGB(255, 189, 255, 254),
-                ),
-                padding: const EdgeInsets.all(15),
-                child: Text(
-                  '\$${tx.amount}', //tx.amount.toString() can also be used string interpolation
-                  style: const TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+    return Container(
+      height: 450,
+      child: ListView(
+        children: transactions.map((tx) {
+          return Card(
+            child: Row(
+              children: <Widget>[
+                Container(
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Color.fromARGB(255, 189, 255, 254),
                   ),
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    tx.title,
+                  padding: const EdgeInsets.all(15),
+                  child: Text(
+                    '\$${tx.amount.toStringAsFixed(2)}', //tx.amount.toString() can also be used string interpolation
                     style: const TextStyle(
-                      fontSize: 18,
+                      fontSize: 13,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 14, 73, 124),
+                      color: Colors.black,
                     ),
                   ),
-                  Text(
-                    DateFormat.yMMMd().format(tx.date),
-                    style: const TextStyle(
-                      fontSize: 15,
-                      color: Colors.grey,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      tx.title,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 14, 73, 124),
+                      ),
                     ),
-                  ),
-                ],
-              )
-            ],
-          ),
-        );
-      }).toList(),
+                    Text(
+                      DateFormat.yMMMd().format(tx.date),
+                      style: const TextStyle(
+                        fontSize: 15,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          );
+        }).toList(),
+      ),
     );
   }
 }
