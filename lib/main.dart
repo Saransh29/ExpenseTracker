@@ -11,14 +11,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Expense Tracker',
-      theme: ThemeData(
-        primarySwatch: Colors.lightGreen,
-        visualDensity: VisualDensity.comfortable,
-        fontFamily: 'applesf',
-      ),
-      home: MyHomePage(),
-    );
+        title: 'Expense Tracker',
+        theme: ThemeData(
+          primarySwatch: Colors.lightGreen,
+          visualDensity: VisualDensity.comfortable,
+          fontFamily: 'applesf',
+        ),
+        home: MyHomePage(),
+        debugShowCheckedModeBanner: false);
   }
 }
 

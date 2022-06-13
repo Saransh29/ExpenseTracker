@@ -1,0 +1,1 @@
+added floating buttons , made it scrollable 

@@ -35,6 +35,12 @@ class TransactionList extends StatelessWidget {
             )
           : ListView(
               children: transactions.map((tx) {
+                // return ListTile(
+                //   leading: CircleAvatar(
+                //     radius: 30,
+                //     child: Text('\$${transactions[index].amount}'),//can only be used with ListView.builder
+                //   ),
+                // );
                 return Card(
                   child: Row(
                     children: <Widget>[
@@ -46,12 +52,14 @@ class TransactionList extends StatelessWidget {
                           color: Color.fromARGB(255, 189, 255, 254),
                         ),
                         padding: const EdgeInsets.all(15),
-                        child: Text(
-                          '\$${tx.amount.toStringAsFixed(2)}', //tx.amount.toString() can also be used string interpolation
-                          style: const TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                        child: FittedBox(
+                          child: Text(
+                            '\$${tx.amount.toStringAsFixed(2)}', //tx.amount.toString() can also be used string interpolation
+                            style: const TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       ),
