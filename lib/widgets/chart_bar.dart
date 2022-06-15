@@ -15,13 +15,13 @@ class ChartBar extends StatelessWidget {
           height: 20,
           child: FittedBox(
             child: Text(
-                '\$${spendingAmount.toStringAsFixed(0)}'), //to remove all decimal places
+                '\₹${spendingAmount.toStringAsFixed(0)}'), //to remove all decimal places
           ),
         ),
         SizedBox(height: 4),
         Container(
-          height: 60,
-          width: 10,
+          height: 80,
+          width: 15,
           child: Stack(
             // elements on top of each other overlapping
             children: <Widget>[
@@ -36,7 +36,7 @@ class ChartBar extends StatelessWidget {
                 heightFactor: spendingPctOfTotal,
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.amber,
+                    color: Colors.cyan,
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
@@ -45,9 +45,9 @@ class ChartBar extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 4,
+          height: 7,
         ),
-        Text(label),
+        Container(height: 20, child: FittedBox(child: Text(label))),
       ],
     );
   }
