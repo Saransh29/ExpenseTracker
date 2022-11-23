@@ -28,7 +28,7 @@ class DatabaseProvider with ChangeNotifier {
             .toList()
         : _expenses;
   }
-
+  // ? means cannot be null
   Database? _database;
   Future<Database> get database async {
     // database directory
@@ -45,6 +45,7 @@ class DatabaseProvider with ChangeNotifier {
     );
 
     return _database!;
+    // ! means cannot be null
   }
 
   // _createDb function
@@ -72,7 +73,10 @@ class DatabaseProvider with ChangeNotifier {
       )''');
 
       // insert the initial categories.
-      // this will add all the categories to category table and initialize the 'entries' with 0 and 'totalAmount' to 0.0
+      // this will add all the categories to category table and 
+      // initialize the 'entries' with 0 and 'totalAmount' to 0.0
+
+      //here icons map stores all [string:icon] data
       for (int i = 0; i < icons.length; i++) {
         await txn.insert(cTable, {
           'title': icons.keys.toList()[i],
@@ -131,8 +135,8 @@ class DatabaseProvider with ChangeNotifier {
       });
     });
   }
-  // method to add an expense to database
 
+  // method to add an expense to database
   Future<void> addExpense(Expense exp) async {
     final db = await database;
     await db.transaction((txn) async {

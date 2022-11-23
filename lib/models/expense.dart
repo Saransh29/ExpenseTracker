@@ -1,9 +1,12 @@
+// class for expense
+// each transaction will be an object of this class
+
 class Expense {
   final int id; // unique id for every expense
-  final String title; // what are we spending on
-  final double amount; // how much are we spending
-  final DateTime date; // when are we spending
-  final String category; // which category on we spending
+  final String title; 
+  final double amount; 
+  final DateTime date; 
+  final String category; 
 
   // constructor
   Expense({
@@ -30,4 +33,5 @@ class Expense {
       amount: double.parse(value['amount']),
       date: DateTime.parse(value['date']),
       category: value['category']);
+      
 }

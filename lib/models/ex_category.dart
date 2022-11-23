@@ -1,14 +1,12 @@
-// this is expense category class or model
-// every expense will have a category that it belongs to.
+// expense category class
 import 'package:flutter/material.dart';
 import '../constants/icons.dart';
 
 class ExpenseCategory {
-  final String title; // the title of the category
-  int entries =
-      0; // how many expenses are in this category. it will change overtime
+  final String title; 
+  int entries = 0; //it will change overtime that's why it's not final
   double totalAmount = 0.0; // total amount of expenses in this category
-  final IconData icon; // we will define some constant icons.
+  final IconData icon; // constant icon for this category
 
   // constructor
   ExpenseCategory({
@@ -25,11 +23,12 @@ class ExpenseCategory {
         'entries': entries,
         'totalAmount': totalAmount
             .toString(), // our database won't be able to store double values so we convert it to a string
-        // not gonna store the icons in database. that's too much work.
       };
 
   // when we retrieve the data from the database it will be a 'Map'.
-  // for our app to understand the data, we need to convert it back to a 'Expense Category'
+  // so we need to convert it back to a 'Expense Category'
+
+  // map named value we extract the data from it to 'Expense Category' object
   factory ExpenseCategory.fromString(Map<String, dynamic> value) =>
       ExpenseCategory(
         title: value['title'],
